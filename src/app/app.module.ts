@@ -26,8 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HandleButtonDirective } from './Directives/handle-button.directive';
-import { AuthGuard } from 'Nokia_Receptionist/src/app/ApiCall/authguard.service';
-import { AuthService } from './ApiCall/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +62,7 @@ import { AuthService } from './ApiCall/auth.service';
     MatMenuModule
 
   ],
-  providers:[AuthGuard,AuthService],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

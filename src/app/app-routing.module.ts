@@ -9,7 +9,6 @@ import { ContentComponent } from './home/content/content.component';
 import { DashboardComponent } from './home/sidebar/home/dashboard/dashboard.component';
 import { SearchPageComponent } from './home/sidebar/search-page/search-page.component';
 import { SettingComponent } from './home/sidebar/setting/setting.component';
-import { AuthGuard } from 'Nokia_Receptionist/src/app/ApiCall/authguard.service';
 
 
 const routes: Routes = [
