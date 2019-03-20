@@ -1,0 +1,69 @@
+
+<div class="container-fluid" style="margin-top:20px;">
+    <div class="footer-copyright-area myDiv breadcome-list" style="padding: 0;" >
+        <span class="text"> <h2><i class="fa fa-wrench fa-fw"></i>Manage User</h2></span>
+                <div class="sparkline12-hd" style="padding: 15px 20px;text-align: left;padding-top: 1">
+            <div class="main-sparkline12-hd ">
+                 <div class="content">
+
+<!-- Static Table Start -->
+<div class="main-sparkline12-hd table-responsive">
+<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Password</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Category</th>
+                <th>Nokia ID</th>
+                <th>Building ID</th>
+
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of Users">
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.email}}</td>
+               <td>{{user.category_id}}</td>         
+               <td>{{user.nokiaID}}</td> 
+               <td>{{user.buildingID}}</td>       
+                             <td> 
+                                  <button type="button" class="btn btn-light">Edit</button></td>
+                                <td> <button class="btn btn-sm btn-success"  type="submit">Delete</button></td>
+                           
+              </tr>
+        </tbody>
+    </table>
+  </div>
+    <!-- Static Table End -->
+                 </div></div></div></div>
+                 <app-addnewuser #c="newUser"></app-addnewuser>
+                 <div style="text-align:left; margin-top:10px;  margin-bottom:20px;">
+           <button type="button" data-toggle="modal"  data-target="#zoomInDown2" (click)="c.showChildModal()" style="width:160px; height:45px;text-align:left;" class="btn-success btn-default btn-lg" ><i class="fa fa-check fa-fw"></i>Create new </button>
+         </div>
+                
+                </div>
+
+                 
+
+
+<style>
+table, th , td {
+border: 1px solid grey;
+border-collapse: collapse;
+padding: 5px;
+}
+
+table tr:nth-child(odd) {
+background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+background-color: #ffffff;
+}
+</style>

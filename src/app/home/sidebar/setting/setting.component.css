@@ -1,0 +1,41 @@
+.myDiv {
+    
+    -webkit-border-top-left-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    -moz-border-radius-topleft:6px;
+    -moz-border-radius-topright:6px;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    font-size:12pt; /* or whatever */
+  }
+  .myDiv h2 {
+      text-align: left;
+    padding:4px;
+    color:#fff;
+    margin:0;
+    background-color:#0774bd;
+    font-size:12pt; /* or whatever */
+  }
+  .myDiv p {
+    padding:4px; 
+  }
+
+  
+
+
+label { font-size: 23px; }
+
+
+/*** custom checkboxes ***/
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */

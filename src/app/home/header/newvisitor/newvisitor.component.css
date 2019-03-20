@@ -1,0 +1,11 @@
+.modal-body{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+.inputdemoErrors .inputErrorsApp {
+    min-height: 48px; }
+  
+  .inputdemoErrors md-input-container > p {
+    font-size: 0.8em;
+    text-align: left;
+    width: 100%; }

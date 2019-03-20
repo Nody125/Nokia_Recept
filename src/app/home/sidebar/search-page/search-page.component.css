@@ -1,0 +1,36 @@
+.myDiv {
+    
+    -webkit-border-top-left-radius:6px;
+    -webkit-border-top-right-radius:6px;
+    -moz-border-radius-topleft:6px;
+    -moz-border-radius-topright:6px;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    font-size:12pt; /* or whatever */
+  }
+  .myDiv h2 {
+      text-align: left;
+    padding:4px;
+    color:#fff;
+    margin:0;
+    background-color:#0774bd;
+    font-size:12pt; /* or whatever */
+  }
+  .myDiv p {
+    padding:4px; 
+  }
+
+  table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+  

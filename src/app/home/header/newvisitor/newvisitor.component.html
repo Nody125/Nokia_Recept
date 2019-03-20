@@ -1,0 +1,223 @@
+<div id="#zoomInDown1" bsModal #childModal="bs-modal" class="modal fade" tabindex="0" role="dialog"
+[config]="{backdrop: 'static',keyboard: false}" >
+    <div class="modal-dialog">
+            <div class="modal-content">
+                        <div class="row">
+                                <div class="col-lg-12">
+                                                <mat-toolbar>Add Visit
+                                                  <span aria-label="Close" style="margin-left: 450px;" ><i (click)="hideChildModal(); resetSearch();" class="fa fa-times"></i></span>
+                                                </mat-toolbar>
+                                                                                   
+                                                    
+                                                    <div class="sparkline12-hd" style="padding: 15px 20px;text-align: left;padding-top: 1">
+                                                        <div class="sparkline12-hd">
+                                                    
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <form id="adminpro-register-form" class="adminpro-form">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="login-bg">
+                                                                                    <div class="row">
+                                                                                            <div class="col-lg-6">
+                                                                                                    <div class="radio">
+                                                                                                            <label>Is Internal ?</label> 
+                                                                                                            <mat-radio-group>
+                                                                                                                        <mat-radio-button value="1"(click)="onsubmitNo()">No</mat-radio-button>
+                                                                                                                        <mat-radio-button value="2"(click)="onSubmitYes()">Yes</mat-radio-button>
+                                                                                                                      </mat-radio-group>
+                                                                                                          </div>
+                                                                                                    
+                                                                                            
+                                                                                            </div>
+                                                                                            <div class="col-lg-6">
+                                                                                                    <input type="text" name="arrival" [(ngModel)]="arrival" class="form-control" style="margin-top:10px;" id="dateTime" required  value = "{{date | date: 'd MMMM, y | h:mm:ss' }}" readonly> 
+                                                                                            </div>
+                                                                                            <br>
+                                                                                            <br>
+                                                                                                 </div>
+                                                                                                 
+                                                                                
+                                                                              <div style="display:none" id="extVisitor">
+                                                                                    <div class="row">
+                                                                                            <div class="col-lg-12">
+                                                                                                    <mat-form-field class="example-full-width">
+                                                                                                            <div class="row">
+                                                                                                                   <input [(ngModel)]="searchCard" style="margin-left: 18px;" type="text"(onSelect)="onItemSelected(app)" placeholder="Search for visitor" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                                                                                                  
+                                                                                                              </div>
+                                                                                                            <mat-autocomplete autoActiveFirstOptions
+                                                                                                            id="select"
+                                                                                                             #auto="matAutocomplete">
+                                                                                                              <mat-option *ngFor="let option of filteredOptions | async;let i = index" 
+                                                                                                               [value]="option" 
+                                                                                                               (click)="onItemSelected(i)">
+                                                                                                                {{option}}{{i}}
+                                                                                                              </mat-option>
+                                                                                                            </mat-autocomplete>
+                                                                                                            
+                                                                                                          </mat-form-field>
+                                                                                            </div>
+                                                                                    
+                                                                                        </div>
+                                                                                <div class="row">
+                                                                                        <br>
+                                                                                    <div class="col-lg-6">
+                                                                                        
+                                                                                      <p>First Name<input  [(ngModel)]="fname" id="fName" type="text" name="fname" class="form-control" required></p>
+                                                                                    </div>
+                                                                                    <div class="col-lg-6">
+                                                                                        Last Name <input [(ngModel)]="lName"type="text" id="lName" name="lname" class="form-control" required>
+                                                                                     </div>
+                                                                                     
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        
+                                                                                            <div class="col-lg-6">
+                                                                                                            <div class="form-group">
+                                                                                                             Card number
+                                                                                                             <input type="text" [(ngModel)]="Cnumber" name="Cnumber"class="form-control" id="cardnumber"required>
+                                                                                                            </div>
+                                                                                                       
+                                                                                                 </div>
+                                                                                                 <div class="col-lg-6">
+                                                                                                        <div class="form-group">
+                                                                                                            Card Type
+                                                                                                            <select   name="interested" class="form-control" (change)="onChange($event)">
+                                                                                                              <option selected disabled hidden style='display: none' value=''></option>
+                                                                                                                <option id="cardType" ng-model ="nrSelect"  *ngFor="let card of CardType;let i=index;" required>{{card.name}}</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                   
+                                                                                             </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                            <div class="col-lg-6">
+                                                                                                    mobile <input [(ngModel)]="mobile" name="mobile"type="text"  id="mob"class="form-control">
+                                                                                                </div>
+                                                                                            <div class="col-lg-6">
+                                                                                                   Nationality <input [(ngModel)]="nationality" name="nationality"type="text" id="nationality" class="form-control" >
+                                                                                                 </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-6">
+                                                                                            Visitor Card
+                                                                                            <select   class="form-control" (change)="onChangeVCard($event)"  >
+                                                                                                <option selected disabled hidden style='display: none' value=''></option>
+                                                                                                <option  id="vCard" value=""ng-model ="cardNo" *ngFor="let vcard of VisitorCards;let i=index;">{{vcard.cardNumber}}</option>
+                                                                                                
+                                                                                            </select>  
+                                                                                    </div>
+                                                                                    <div class="col-lg-6">
+                                                                                            <p>Host mail<input [(ngModel)]="Hmail" name="Hmail"class="form-control" id="Hmail" type="email"></p>
+                                                                                       </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    
+                                                                                          <div class="col-lg-6">
+                                                                                                <p>Visit reason<textarea [(ngModel)]="vReason" name="vReason"class="form-control"  style="height:35px;"id="reason" ></textarea></p>
+
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div style="text-align:right;">
+                                                                                    <button class="btn-success btn-sm btn-default" (click)="onAddVisit()">Submit</button>
+                                                                                  <!--  <button class="btn-sm btn-primary" type="submit" (click)="onCancel()">Cancel</button> -->
+                                                        
+                                                                                </div>
+                                                                                </div>
+
+
+
+<!---------------------------------------------------------------------------------------------------------Internal Visitor------------------------------------------------------------------------------------->
+
+                                                                                <div style="display:none" id="intVisitor">
+                                                                                        <div class="row">
+                                                                                                <div class="col-lg-12">
+                                                                                                        <mat-form-field class="example-full-width">
+                                                                                                                <div class="row">
+                                                                                                                       <input style="margin-left: 18px;" type="text"(onSelect)="onItemSelected(app)" placeholder="Enter Nokia Email" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                                                                                                      
+                                                                                                                  </div>
+                                                                                                                <mat-autocomplete autoActiveFirstOptions
+                                                                                                                id="select"
+                                                                                                                 #auto="matAutocomplete">
+                                                                                                                  <mat-option *ngFor="let option of filteredOptions | async;let i = index" 
+                                                                                                                   [value]="option" 
+                                                                                                                   (click)="onItemSelected(i)">
+                                                                                                                    {{option}}{{i}}
+                                                                                                                  </mat-option>
+                                                                                                                </mat-autocomplete>
+                                                                                                                
+                                                                                                              </mat-form-field>
+                                                                                                              <button class="btn btn-success btn-sm btn-default" style="margin-top:22px;margin-left:25px;width: 10%;">Check</button>
+                                                                                                </div>
+                                                                                        
+                                                                                            </div>
+                                                                                    <div class="row">
+                                                                                            <br>
+                                                                                        <div class="col-lg-6">
+                                                                                            
+                                                                                          <p>First Name<input  id="fName" type="text" class="form-control"></p>
+                                                                                        </div>
+                                                                                        <div class="col-lg-6">
+                                                                                            Last Name <input type="text" class="form-control" >
+                                                                                         </div>
+                                                                                         
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                            
+                                                                                                <div class="col-lg-6">
+                                                                                                                <div class="form-group">
+                                                                                                                 Nokia ID
+                                                                                                                 <input type="text" class="form-control" >
+                                                                                                                </div>
+                                                                                                           
+                                                                                                     </div>
+                                                                                                     <div class="col-lg-6">
+                                                                                                            mobile <input type="text"  id="pass"class="form-control">
+                                                                                                        </div>
+                                                                                                   
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                          
+                                                                                               
+                                                                                                <div class="col-lg-6">
+                                                                                                       Nationality <input type="text" class="form-control" >
+                                                                                                     </div>
+
+                                                                                                     <div class="col-lg-6">
+                                                                                                            Visitor Card
+                                                                                                            <select id="visitorCard" name="interested" class="form-control">
+                                                                                                                <option value="none" *ngFor="let vcard of VisitorCards">{{vcard.cardNumber}}</option>
+                                                                                                                
+                                                                                                            </select>  
+                                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                            <div class="col-lg-6">
+                                                                                                    <p>Visit reason<textarea class="form-control" style="height:35px;" id="nokiaId" ></textarea></p>
+    
+                                                                                            </div>
+                                                                                        <div class="col-lg-6">
+                                                                                                <p>Host mail<input class="form-control" type="email"></p>
+                                                                                           </div>
+
+                                                                
+                                                                                    </div>
+                                                                                    
+                                                                                    <div style="text-align:right;">
+                                                                                        <button class="btn-success btn-sm btn-default"  type="submit">Submit</button>
+                                                                                      <!--  <button class="btn-sm btn-primary" type="submit" (click)="onCancel()">Cancel</button> -->
+                                                            
+                                                                                    </div>
+                                                                                    </div>
+                                                                              </div>
+                                                                        </div></form></div></div>
+                                                          </div></div>
+                                                  
+                                        
+                                </div>
+                        </div>
+                        
+            </div>
+        </div>
+</div>

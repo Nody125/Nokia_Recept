@@ -1,0 +1,167 @@
+
+<div class="container-fluid">
+        <div class="footer-copyright-area myDiv breadcome-list" style="padding: 0;" >
+            <span class="text"> <h2><i class="fa fa-search fa-fw"></i>Search</h2></span>
+            <div class="sparkline12-hd" style="padding: 15px 20px;text-align: left;padding-top: 1">
+                <div class="main-sparkline12-hd ">
+                     <div class="content">
+                            <button mat-button [matMenuTriggerFor]="animals">Search For</button>
+
+<mat-menu #animals="matMenu">
+  <button mat-menu-item  >Visits</button>
+  <button mat-menu-item [matMenuTriggerFor]="VisitorCards">Visitor Cards</button>
+</mat-menu>
+
+<mat-menu #VisitorCards="matMenu">
+  <button mat-menu-item>Active Cards</button>
+  <button mat-menu-item>Used Cards</button>
+  <button mat-menu-item>Missed Cards</button>
+</mat-menu>
+
+
+
+                            <form class="form">
+                                    <div class="form-body">
+                                            <div class="row">
+                                                   
+                                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                            <div class="form-group row">
+                                                                    <label for="inputname" class="col-sm-3 col-form-label">Name</label>
+                                                                    <div class="col-sm-7">
+                                                                      <input type="text" class="form-control" id="inputname" placeholder="name">
+                                                                    </div>
+                                                                  </div>   
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                            <div class="form-group row">
+                                                    <label for="inputmobile" class="col-sm-3 col-form-label">Mobile no.</label>
+                                                    <div class="col-sm-7">
+                                                      <input type="text" class="form-control" id="inputmobile" placeholder="mobile">
+                                                    </div></div></div>
+                                                    
+                                                
+                                                </div>
+
+                                                <div class="row">
+                                                        <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                                <div class="form-group row">
+                                                                        <label for="inputLicsens" class="col-sm-3 col-form-label">Licsense No.</label>
+                                                                        <div class="col-sm-7">
+                                                                          <input type="text" class="form-control" id="inputLicsens" placeholder="name">
+                                                                        </div>
+                                                                      </div>                            
+                                                                      
+    
+                                                        </div>
+                                                       
+                                                        <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                                <div class="form-group row">
+                                                                        <label for="inputLicsens" class="col-sm-3 col-form-label">Building</label>  
+                                                                        <div class="col-sm-7">
+                                                                                <select class=" dropdown" class="form-control" name="bulding">
+                                                                                    <option disabled>-- select --</option>
+                                                                                    <option>Maadi</option>
+                                                                                    <option>Smart Village</option>
+                                                                                </select>
+                                                                            </div>
+                                                                </div></div>
+
+                                                                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                                        <div class="form-group row">
+                                                                                <label for="card" class="col-sm-3 col-form-label">Card no.</label>  
+                                                                                <div class="col-sm-7">
+                                                                                        <select class="dropdown" class="form-control" name="card">
+                                                                                                <option>V065</option>
+                                                                                                <option>V066</option>
+                                                                                            </select>
+                                                                                    </div>
+                                                                        </div></div>
+
+                                                                        <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                                                <div class="form-group row">
+                                                                                        <label for="card" class="col-sm-3 col-form-label">Card status.</label>  
+                                                                                        <div class="col-sm-7">
+                                                                                                <select class="dropdown" class="form-control" name="cardstatus">
+                                                                                                        <option>Returned</option>
+                                                                                                        <option>Not Returned</option>
+                                                                                                        <option>missed</option>
+
+                                                                                                    </select>
+                                                                                            </div>
+                                                                                </div></div>
+                                                                                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                                                                        <div class="form-group row">
+                                                                                                <label for="card" class="col-sm-3 col-form-label">VisitDate/From</label>  
+                                                                                                <div class="col-sm-7"style="text-align:left;">
+                                                                                                        <input type="date" name="date" class="form-control">
+                                                                                                         <input type="date" name="date" class="form-control">
+                                                                                                            
+                                                                                                            
+                                                                                                    </div>
+                                                                                        </div></div>
+                                                         
+                                                    </div>
+                                    </div></form>
+                       
+                       <div style="margin-top:10px;">
+                        
+                    <button type="button" class="btn btn-primary" [ngClass]="{disabled :disableButton}" (click)="onSearch();"><i class="fa fa-search fa-fw"></i>Search All</button>
+                    <button type="button" class="btn btn-success"><i class="fa fa-exclamation-triangle fa-fw"></i>Missed Cards</button>
+                    <button type="button" class="btn btn-primary" ><i class="fa fa-search fa-fw"></i>Search</button>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid" style="margin-top:20px;" *ngIf = "show_results">
+        <div class="footer-copyright-area myDiv breadcome-list" style="padding: 0;" >
+            <span class="text"> <h2>Result</h2></span>
+            <div class="sparkline12-hd" style="padding: 15px 20px;text-align: left;padding-top: 1">
+                <div class="main-sparkline12-hd ">
+                     <div class="content">
+
+    <!-- Static Table Start -->
+    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+            <thead>
+                <tr>
+                    <th data-field="name">First Name</th>
+                    <th data-field="name">Last Name</th>
+                    <th data-field="idType" data-editable="true">Mobile</th>
+                    <th data-field="idNumber" data-editable="true">ID Number</th>
+                    <th data-field="mobile" data-editable="true">ID Type</th>
+                    <th data-field="company" data-editable="true">Nationality</th>
+                    <th data-field="cardNumber" data-editable="true">Visit Date</th>
+                    <th data-field="visitDate" data-editable="true">Visit Reason</th>
+                    <th data-field="leaveDate" data-editable="true">Host Mail</th>
+                    <th data-field="visitDuration" data-editable="true">Visitor Card No.</th>
+                    <th data-field="cardReturn" data-editable="true">Is Internal</th>
+                    <th data-field="stolen" data-editable="true">Departure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let visitor of visitors;let card of VCardno">
+                    <td> {{visitor.visitor.first_name}} </td>
+                    <td> {{visitor.visitor.last_name}} </td>
+                    <td> {{visitor.visitor.mobile}} </td>
+                    <td> {{visitor.visitor.card_number}} </td>
+                    <td> {{cardType}} </td>
+                    <td> {{visitor.visitor.nationality}} </td>
+                    <td> {{visitor.arrival}} </td>
+                    <td> {{visitor.visit_reason}} </td>
+                    <td> {{visitor.host_mail}} </td>
+                    <td> {{VCardno}} </td>
+                    <td> {{visitor.is_internal}} </td>
+                    <td> {{visitor.departure}} </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <!-- Static Table End -->
+                     </div></div></div></div></div>
+
+
